@@ -3,287 +3,444 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products - ShopHub</title>
+    <title>Shop - ShopHub</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Navigation Bar -->
+    <!-- Navigation -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-wrapper">
-                <div class="logo">
-                    <h1>🛍️ ShopHub</h1>
-                </div>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="products.html" class="active">Shop</a></li>
-                    <li><a href="cart.html" class="cart-link">🛒 Cart <span class="cart-count">0</span></a></li>
-                    <li><a href="index.html#contact">Contact</a></li>
-                </ul>
-                <div class="hamburger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                <span>ShopHub</span>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="products.html" class="nav-link active">Shop</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Page Header -->
     <section class="page-header">
-        <div class="container">
-            <h1>Our Products</h1>
-            <p>Browse our complete collection of quality products</p>
-        </div>
+        <h1>Our Collection</h1>
+        <p>Browse our amazing selection of products</p>
     </section>
 
-    <!-- Products Section -->
-    <section class="products-section">
-        <div class="container">
-            <div class="products-layout">
-                <!-- Sidebar Filter -->
-                <aside class="sidebar">
-                    <div class="filter-box">
-                        <h3>Filter by Category</h3>
-                        <div class="filter-options">
-                            <label><input type="radio" name="category" value="all" checked> All Products</label>
-                            <label><input type="radio" name="category" value="audio"> Audio</label>
-                            <label><input type="radio" name="category" value="accessories"> Accessories</label>
-                            <label><input type="radio" name="category" value="wearables"> Wearables</label>
+    <!-- Filters & Products -->
+    <div class="shop-container">
+        <!-- Sidebar Filters -->
+        <aside class="filters">
+            <h3>Filters</h3>
+            
+            <div class="filter-group">
+                <h4>Category</h4>
+                <label><input type="checkbox"> Electronics</label>
+                <label><input type="checkbox"> Fashion</label>
+                <label><input type="checkbox"> Home & Living</label>
+                <label><input type="checkbox"> Sports</label>
+            </div>
+
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <input type="range" min="0" max="500" value="500" class="price-slider">
+                <div class="price-range">$0 - $500</div>
+            </div>
+
+            <div class="filter-group">
+                <h4>Rating</h4>
+                <label><input type="checkbox"> ★★★★★ 5 Stars</label>
+                <label><input type="checkbox"> ★★★★ 4+ Stars</label>
+                <label><input type="checkbox"> ★★★ 3+ Stars</label>
+            </div>
+
+            <button class="btn btn-primary" style="width: 100%; margin-top: 20px;">Apply Filters</button>
+        </aside>
+
+        <!-- Products Grid -->
+        <main class="products-section">
+            <div class="sort-bar">
+                <p>Showing 12 products</p>
+                <select class="sort-select">
+                    <option>Sort by: Newest</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
+                    <option>Most Popular</option>
+                    <option>Best Rated</option>
+                </select>
+            </div>
+
+            <div class="products-grid large">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Wireless Headphones">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Wireless Headphones', 79.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
                         </div>
                     </div>
-
-                    <div class="filter-box">
-                        <h3>Price Range</h3>
-                        <div class="price-slider">
-                            <input type="range" min="0" max="500" value="500" id="priceRange">
-                            <p>Up to: $<span id="priceValue">500</span></p>
+                    <div class="product-info">
+                        <h3>Wireless Headphones</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(124)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$79.99</span>
+                            <span class="original-price">$129.99</span>
                         </div>
                     </div>
+                </div>
 
-                    <div class="filter-box">
-                        <h3>Rating</h3>
-                        <div class="filter-options">
-                            <label><input type="checkbox"> ⭐⭐⭐⭐⭐ (5 stars)</label>
-                            <label><input type="checkbox"> ⭐⭐⭐⭐ (4+ stars)</label>
-                            <label><input type="checkbox"> ⭐⭐⭐ (3+ stars)</label>
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Sunglasses">
+                        <div class="product-badge">Hot</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Premium Sunglasses', 89.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
                         </div>
                     </div>
-                </aside>
-
-                <!-- Products Grid -->
-                <div class="products-main">
-                    <div class="sort-bar">
-                        <label for="sort">Sort by:</label>
-                        <select id="sort">
-                            <option value="featured">Featured</option>
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                            <option value="rating">Highest Rated</option>
-                            <option value="newest">Newest</option>
-                        </select>
-                    </div>
-
-                    <div class="products-grid">
-                        <!-- Product 1 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Wireless+Headphones" alt="Wireless Headphones">
-                                <span class="badge">Popular</span>
-                            </div>
-                            <div class="product-info">
-                                <h3>Wireless Headphones Pro</h3>
-                                <p class="description">Premium noise-cancelling headphones with 30-hour battery</p>
-                                <div class="price-section">
-                                    <span class="price">$79.99</span>
-                                    <span class="rating">⭐ 4.5/5 (128)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="1" data-name="Wireless Headphones Pro" data-price="79.99">Add to Cart</button>
-                            </div>
+                    <div class="product-info">
+                        <h3>Premium Sunglasses</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(89)</span>
                         </div>
-
-                        <!-- Product 2 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Smart+Watch" alt="Smart Watch">
-                                <span class="badge sale">Sale</span>
-                            </div>
-                            <div class="product-info">
-                                <h3>Smart Watch Ultra</h3>
-                                <p class="description">AMOLED display, health tracking, GPS enabled</p>
-                                <div class="price-section">
-                                    <span class="price">$199.99</span>
-                                    <span class="original-price">$249.99</span>
-                                    <span class="rating">⭐ 4.8/5 (256)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="2" data-name="Smart Watch Ultra" data-price="199.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 3 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=USB-C+Cable" alt="USB-C Cable">
-                            </div>
-                            <div class="product-info">
-                                <h3>Premium USB-C Cable</h3>
-                                <p class="description">6ft fast charging cable with durable reinforced design</p>
-                                <div class="price-section">
-                                    <span class="price">$12.99</span>
-                                    <span class="rating">⭐ 4.6/5 (89)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="3" data-name="Premium USB-C Cable" data-price="12.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 4 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Phone+Case" alt="Phone Case">
-                                <span class="badge">New</span>
-                            </div>
-                            <div class="product-info">
-                                <h3>Ultra Protective Phone Case</h3>
-                                <p class="description">Military-grade protection with stylish design</p>
-                                <div class="price-section">
-                                    <span class="price">$24.99</span>
-                                    <span class="rating">⭐ 4.7/5 (192)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="4" data-name="Ultra Protective Phone Case" data-price="24.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 5 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Screen+Protector" alt="Screen Protector">
-                            </div>
-                            <div class="product-info">
-                                <h3>Tempered Glass Screen Protector</h3>
-                                <p class="description">9H hardness, anti-fingerprint, easy installation</p>
-                                <div class="price-section">
-                                    <span class="price">$9.99</span>
-                                    <span class="rating">⭐ 4.4/5 (156)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="5" data-name="Tempered Glass Screen Protector" data-price="9.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 6 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Portable+Speaker" alt="Portable Speaker">
-                                <span class="badge sale">-20%</span>
-                            </div>
-                            <div class="product-info">
-                                <h3>Portable Bluetooth Speaker</h3>
-                                <p class="description">Waterproof, 360° sound, 12-hour battery life</p>
-                                <div class="price-section">
-                                    <span class="price">$49.99</span>
-                                    <span class="original-price">$62.99</span>
-                                    <span class="rating">⭐ 4.9/5 (312)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="6" data-name="Portable Bluetooth Speaker" data-price="49.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 7 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Wireless+Charger" alt="Wireless Charger">
-                            </div>
-                            <div class="product-info">
-                                <h3>Fast Wireless Charger</h3>
-                                <p class="description">15W fast charging, works with any Qi-enabled device</p>
-                                <div class="price-section">
-                                    <span class="price">$34.99</span>
-                                    <span class="rating">⭐ 4.3/5 (203)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="7" data-name="Fast Wireless Charger" data-price="34.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 8 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Phone+Stand" alt="Phone Stand">
-                                <span class="badge">Popular</span>
-                            </div>
-                            <div class="product-info">
-                                <h3>Adjustable Phone Stand</h3>
-                                <p class="description">Foldable design, non-slip base, perfect for desk</p>
-                                <div class="price-section">
-                                    <span class="price">$14.99</span>
-                                    <span class="rating">⭐ 4.5/5 (178)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="8" data-name="Adjustable Phone Stand" data-price="14.99">Add to Cart</button>
-                            </div>
-                        </div>
-
-                        <!-- Product 9 -->
-                        <div class="product-card">
-                            <div class="product-image">
-                                <img src="https://via.placeholder.com/250x250?text=Cable+Organizer" alt="Cable Organizer">
-                            </div>
-                            <div class="product-info">
-                                <h3>Cable Organizer Kit</h3>
-                                <p class="description">Keep your cables organized and tangle-free</p>
-                                <div class="price-section">
-                                    <span class="price">$11.99</span>
-                                    <span class="rating">⭐ 4.2/5 (94)</span>
-                                </div>
-                                <button class="btn btn-secondary add-to-cart" data-id="9" data-name="Cable Organizer Kit" data-price="11.99">Add to Cart</button>
-                            </div>
+                        <div class="price">
+                            <span class="current-price">$89.99</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Pagination -->
-                    <div class="pagination">
-                        <a href="#" class="page-link active">1</a>
-                        <a href="#" class="page-link">2</a>
-                        <a href="#" class="page-link">3</a>
-                        <a href="#" class="page-link">Next →</a>
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop" alt="Smartwatch">
+                        <div class="product-badge">New</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Smart Watch Pro', 199.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Watch Pro</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(234)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$199.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Sneakers">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Premium Sneakers', 119.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Sneakers</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(156)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$119.99</span>
+                            <span class="original-price">$179.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Watch">
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Classic Watch', 249.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Classic Watch</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(98)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$249.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Backpack">
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Travel Backpack', 59.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Travel Backpack</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(212)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$59.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop" alt="Tablet">
+                        <div class="product-badge">Sale</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Digital Tablet', 349.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Digital Tablet</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(445)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$349.99</span>
+                            <span class="original-price">$499.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Camera">
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Camera Pro', 799.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Camera Pro</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(67)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$799.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop" alt="Speaker">
+                        <div class="product-badge">Hot</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Bluetooth Speaker', 149.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Bluetooth Speaker</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half"></i>
+                            <span>(378)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$149.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=400&h=400&fit=crop" alt="Phone">
+                        <div class="product-badge">New</div>
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Smartphone X', 899.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smartphone X</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(523)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$899.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=400&h=400&fit=crop" alt="Laptop">
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Laptop Pro', 1299.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Laptop Pro</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(234)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$1,299.99</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&h=400&fit=crop" alt="Charger">
+                        <div class="product-overlay">
+                            <button class="btn-icon" onclick="addToCart('Fast Charger', 39.99)">
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Fast Charger</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(289)</span>
+                        </div>
+                        <div class="price">
+                            <span class="current-price">$39.99</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="pagination">
+                <button class="page-btn active">1</button>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <button class="page-btn">Next</button>
+            </div>
+        </main>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>ShopHub</h3>
-                    <p>Your trusted online shopping destination</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="products.html">Shop</a></li>
-                        <li><a href="#">About Us</a></li>
-                        <li><a href="#">Blog</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <p>Email: info@shophub.com</p>
-                    <p>Phone: 1-800-SHOP-HUB</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#">Facebook</a>
-                        <a href="#">Twitter</a>
-                        <a href="#">Instagram</a>
-                    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>About Us</h4>
+                <p>ShopHub is your destination for premium products and great deals.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 ShopHub. All rights reserved.</p>
-            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ShopHub. All rights reserved.</p>
         </div>
     </footer>
 
